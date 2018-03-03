@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#create users and entries
+200000.times do |login|
+  HTTParty.post("http://localhost:3000/api/v1/entries?login=#{rand(1..100)}&autor_ip=#{rand(1..50)}&content=asd&caption=test}")
+end
+
+
+
+#create_evaluations
+entry_ids = Entry.ids
+100000.times do |t|
+  10.times do |s|
+    Thread.new do
+      HTTParty.post("http://localhost:3000/api/v1/evaluations?entry_id=#{rand(entry_ids)}&appraisal=#{rand(1..5)}")
+    end
+  end
+end
