@@ -10,27 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180303123619) do
+ActiveRecord::Schema.define(version: 20180304144413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "caption"
-    t.string "content"
+    t.string "caption", null: false
+    t.string "content", null: false
     t.integer "autor_ip"
+    t.integer "rating"
+    t.index ["autor_ip"], name: "index_entries_on_autor_ip"
+    t.index ["rating"], name: "index_entries_on_rating"
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "evaluations", force: :cascade do |t|
     t.bigint "entry_id"
-    t.integer "value"
+    t.integer "appraisal"
     t.index ["entry_id"], name: "index_evaluations_on_entry_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "login"
   end
 
 end

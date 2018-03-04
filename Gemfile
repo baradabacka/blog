@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 4.0'
 gem 'pg'
 gem 'sidekiq'
+gem 'zhong'
 
 # api
 gem 'grape', '~> 1.0'
@@ -20,6 +21,9 @@ gem 'grape_on_rails_routes'
 gem 'grape-swagger', '~> 0.27'
 gem 'grape-swagger-rails', '~> 0.3'
 gem 'grape-swagger-entity', '~> 0.2'
+
+# client_for_api
+gem 'httparty'
 
 group :test do
   gem 'rspec-rails', '~> 3.6'
