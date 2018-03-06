@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180304144413) do
     t.bigint "user_id"
     t.string "caption", null: false
     t.string "content", null: false
-    t.integer "autor_ip"
+    t.integer "autor_ip", null: false
     t.integer "rating"
     t.index ["autor_ip"], name: "index_entries_on_autor_ip"
     t.index ["rating"], name: "index_entries_on_rating"
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 20180304144413) do
 
   create_table "evaluations", force: :cascade do |t|
     t.bigint "entry_id"
-    t.integer "appraisal"
+    t.integer "appraisal", null: false
     t.index ["entry_id"], name: "index_evaluations_on_entry_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "login"
+    t.string "login", null: false
   end
 
 end

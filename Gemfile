@@ -25,22 +25,15 @@ gem 'grape-swagger-entity', '~> 0.2'
 # client_for_api
 gem 'httparty'
 
-group :test do
-  gem 'rspec-rails', '~> 3.6'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'factory_girl_rails', '~> 4.7'
-  gem 'rails-controller-testing'
-  gem 'simplecov', :require => false
-  gem 'webmock'
-  gem 'ffaker'
-  gem 'test_after_commit'
-end
-
 group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'factory_bot_rails'
+  gem 'rubocop'
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
 end
 
 group :development do
