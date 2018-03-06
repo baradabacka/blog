@@ -2,9 +2,11 @@ class CreateEntry < ActiveRecord::Migration[5.1]
   def change
     create_table :entries do |t|
       t.references :user
-      t.string :caption
-      t.string :content
+      t.string :caption, null: false
+      t.string :content, null: false
       t.integer :autor_ip
     end
+    Entry.reset_column_information
+    add_index :entries, :autor_ip
   end
 end
